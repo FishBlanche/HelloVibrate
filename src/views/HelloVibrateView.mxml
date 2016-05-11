@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="主页视图">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.run.nativeExtensions.Vibrate.Vibrate;
+			 
+			var v:Vibrate;
+			private function vibrate():void
+			{
+				 
+				 
+				if(!v)
+				{
+					v=new Vibrate;
+				}
+				
+				if(Vibrate.isSupported)
+				{
+					lb.text="support!";
+					v.vibrate(100);
+				}
+				else
+				{
+					lb.text="not support!";
+				}
+			}
+		]]>
+	</fx:Script>
+	<s:Button  horizontalCenter="0"  y="300" width="300" height="150" click="vibrate()"/>
+	<s:Label id="lb" horizontalCenter="0"  y="100" text="HELLO"/>
+	 
+
+</s:View>
